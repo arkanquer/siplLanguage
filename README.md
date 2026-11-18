@@ -221,3 +221,7 @@ GitHub-hosted workflow has passed; confirm the green run before claiming REL-01.
 The pytest wrapper `test_all_conformance_fixtures` is intentionally excluded in CI
 because the full independent conformance runner runs immediately afterward.
 Other conformance unit tests remain enabled.
+
+## Автоматична перевірка
+
+Проєкт перевіряється за допомогою GitHub Actions.
