@@ -74,3 +74,19 @@ class While:
     span: SourceSpan
 
 Statement = Assignment | Skip | Block | If | While
+
+
+@dataclass(frozen=True)
+class LogicalNot:
+    operand: Condition
+    span: SourceSpan
+
+
+@dataclass(frozen=True)
+class LogicalOr:
+    left: Condition
+    right: Condition
+    span: SourceSpan
+
+
+Condition = Comparison | LogicalNot | LogicalOr

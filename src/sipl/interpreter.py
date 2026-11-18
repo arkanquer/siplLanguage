@@ -4,6 +4,7 @@ from collections.abc import Mapping
 
 from .ast import Assignment, BinaryOp, Block, Comparison, Expression, If, Number, Skip, SourceSpan, Statement, Variable, While
 from .trace import ExecutionTrace
+from .ast import Condition, LogicalNot, LogicalOr
 
 
 class SIPLRuntimeError(Exception):
@@ -65,7 +66,11 @@ class Interpreter:
             raise SIPLRuntimeError(f"Unknown arithmetic operator '{expr.operator}'", expr.span)
         raise SIPLRuntimeError(f"Unsupported expression: {type(expr).__name__}")
 
-    def check(self, expr: Comparison) -> bool:
+    def check(self, expr: Condition) -> bool:
+        if isinstance(expr, LogicalNot):
+            return not self.check(expr.operand)
+        if isinstance(expr, LogicalOr):
+            return self.check(expr.left) or self.check(expr.right)
         left = self.evaluate(expr.left)
         right = self.evaluate(expr.right)
         return {

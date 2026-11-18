@@ -1,0 +1,30 @@
+start: "begin" statement "end"             -> program
+
+?statement: simple (";" simple)*             -> sequence
+?simple: NAME ":=" arithmetic                -> assignment
+       | "skip"                              -> skip
+       | "begin" statement "end"            -> block
+       | "if" condition "then" simple "else" simple  -> if_else
+       | "while" condition "do" simple      -> while_loop
+
+?condition: disjunction
+?disjunction: negation ("∨" negation)*         -> disjunction
+?negation: "¬" negation                      -> negate
+         | "(" condition ")"                -> grouped_condition
+         | arithmetic "=" arithmetic        -> equal
+         | arithmetic ">" arithmetic        -> greater
+
+?arithmetic: arithmetic "+" term             -> add
+           | arithmetic "-" term             -> subtract
+           | term
+?term: term "*" factor                       -> multiply
+     | factor
+?factor: "-" factor                          -> unary_minus
+       | NUMBER                              -> number
+       | NAME                                -> variable
+       | "(" arithmetic ")"                -> grouped_arithmetic
+
+NAME: /[A-Z]/
+NUMBER: /[0-9]+/
+%import common.WS
+%ignore WS
