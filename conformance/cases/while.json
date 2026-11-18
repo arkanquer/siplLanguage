@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "id": "while",
+  "source": "while.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "Block",
+      "statements": [
+        {
+          "type": "Assignment",
+          "name": "X",
+          "expression": {
+            "type": "Number",
+            "value": 3
+          }
+        },
+        {
+          "type": "While",
+          "condition": {
+            "type": "Comparison",
+            "left": {
+              "type": "Variable",
+              "name": "X"
+            },
+            "operator": ">",
+            "right": {
+              "type": "Number",
+              "value": 0
+            }
+          },
+          "body": {
+            "type": "Assignment",
+            "name": "X",
+            "expression": {
+              "type": "BinaryOp",
+              "operator": "-",
+              "left": {
+                "type": "Variable",
+                "name": "X"
+              },
+              "right": {
+                "type": "Number",
+                "value": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "final_state": {
+      "X": 0
+    }
+  }
+}

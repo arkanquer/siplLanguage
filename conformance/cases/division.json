@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "division",
+  "source": "division.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "Block",
+      "statements": [
+        {
+          "type": "Assignment",
+          "name": "X",
+          "expression": {
+            "type": "BinaryOp",
+            "operator": "/",
+            "left": {
+              "type": "Number",
+              "value": 9
+            },
+            "right": {
+              "type": "Number",
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "Assignment",
+          "name": "Y",
+          "expression": {
+            "type": "BinaryOp",
+            "operator": "/",
+            "left": {
+              "type": "Number",
+              "value": 8
+            },
+            "right": {
+              "type": "Number",
+              "value": 2
+            }
+          }
+        }
+      ]
+    },
+    "final_state": {
+      "X": 4,
+      "Y": 4
+    }
+  }
+}

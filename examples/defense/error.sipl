@@ -1,0 +1,5 @@
+begin
+    X := 10;
+    Y := 0;
+    R := X / Y
+end

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "precedence",
+  "source": "precedence.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "Assignment",
+      "name": "X",
+      "expression": {
+        "type": "BinaryOp",
+        "operator": "+",
+        "left": {
+          "type": "Number",
+          "value": 2
+        },
+        "right": {
+          "type": "BinaryOp",
+          "operator": "*",
+          "left": {
+            "type": "Number",
+            "value": 3
+          },
+          "right": {
+            "type": "Number",
+            "value": 4
+          }
+        }
+      }
+    },
+    "final_state": {
+      "X": 14
+    }
+  }
+}

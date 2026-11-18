@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "zero_division",
+  "source": "zero_division.sipl",
+  "expect": {
+    "outcome": "error",
+    "phase": "run",
+    "error": {
+      "code": "RUNTIME_ERROR",
+      "line": 1
+    }
+  }
+}

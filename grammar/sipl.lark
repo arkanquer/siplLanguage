@@ -1,0 +1,30 @@
+// Working draft: align exact productions with the course SIPL BNF before claiming CORE-01.
+?start: statement
+
+?statement: assignment
+          | "skip"                       -> skip
+          | "begin" statement_list "end" -> block
+          | "if" condition "then" statement "else" statement -> if_else
+          | "while" condition "do" statement -> while_loop
+
+statement_list: statement (";" statement)* ";"?
+assignment: NAME ":=" arithmetic
+
+?condition: arithmetic REL_OP arithmetic -> comparison
+          | "(" condition ")"
+
+?arithmetic: arithmetic "+" term -> add
+           | arithmetic "-" term -> subtract
+           | term
+?term: term "*" atom -> multiply
+     | term "/" atom -> divide
+     | atom
+?atom: NUMBER -> number
+     | NAME -> variable
+     | "(" arithmetic ")"
+
+REL_OP: "=" | "!=" | "<=" | ">=" | "<" | ">"
+NAME: /[A-Za-z][A-Za-z0-9_]*/
+NUMBER: /[0-9]+/
+%import common.WS
+%ignore WS

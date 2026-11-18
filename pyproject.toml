@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sipl-toolkit-starter"
+version = "0.1.0"
+description = "Starter for a SIPL language toolkit course project"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["lark>=1.1,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5"]
+
+[project.scripts]
+sipl = "sipl.cli:main"
+
+[tool.setuptools.package-data]
+sipl = ["grammar/*.lark"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

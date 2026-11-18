@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "id": "if_false",
+  "source": "if_false.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "If",
+      "condition": {
+        "type": "Comparison",
+        "left": {
+          "type": "Number",
+          "value": 2
+        },
+        "operator": "<",
+        "right": {
+          "type": "Number",
+          "value": 1
+        }
+      },
+      "then_branch": {
+        "type": "Assignment",
+        "name": "X",
+        "expression": {
+          "type": "Number",
+          "value": 10
+        }
+      },
+      "else_branch": {
+        "type": "Assignment",
+        "name": "X",
+        "expression": {
+          "type": "Number",
+          "value": 20
+        }
+      }
+    },
+    "final_state": {
+      "X": 20
+    }
+  }
+}

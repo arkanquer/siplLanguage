@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "skip",
+  "source": "skip.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "Block",
+      "statements": [
+        {
+          "type": "Assignment",
+          "name": "X",
+          "expression": {
+            "type": "Number",
+            "value": 1
+          }
+        },
+        {
+          "type": "Skip"
+        },
+        {
+          "type": "Assignment",
+          "name": "X",
+          "expression": {
+            "type": "BinaryOp",
+            "operator": "+",
+            "left": {
+              "type": "Variable",
+              "name": "X"
+            },
+            "right": {
+              "type": "Number",
+              "value": 1
+            }
+          }
+        }
+      ]
+    },
+    "final_state": {
+      "X": 2
+    }
+  }
+}

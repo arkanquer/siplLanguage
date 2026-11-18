@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "unknown_variable",
+  "source": "unknown_variable.sipl",
+  "expect": {
+    "outcome": "error",
+    "phase": "run",
+    "error": {
+      "code": "RUNTIME_ERROR",
+      "line": 1
+    }
+  }
+}

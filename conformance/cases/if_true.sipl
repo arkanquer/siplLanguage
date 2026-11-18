@@ -1,0 +1,1 @@
+if 2 > 1 then X := 10 else X := 20

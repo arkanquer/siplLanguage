@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "id": "invalid_if",
+  "source": "invalid_if.sipl",
+  "expect": {
+    "outcome": "error",
+    "phase": "check",
+    "error": {
+      "code": "SYNTAX_ERROR",
+      "line": 1
+    }
+  }
+}

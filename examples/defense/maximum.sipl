@@ -1,0 +1,5 @@
+begin
+    A := 15;
+    B := 20;
+    if A > B then MAX := A else MAX := B
+end

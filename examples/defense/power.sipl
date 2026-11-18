@@ -1,0 +1,10 @@
+begin
+    X := 2;
+    Y := 5;
+    R := 1;
+    while Y > 0 do
+    begin
+        R := R * X;
+        Y := Y - 1
+    end
+end

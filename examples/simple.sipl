@@ -1,0 +1,4 @@
+begin
+    X := 2 + 3 * 4;
+    skip
+end

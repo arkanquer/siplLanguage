@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "sequence",
+  "source": "sequence.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "Block",
+      "statements": [
+        {
+          "type": "Assignment",
+          "name": "X",
+          "expression": {
+            "type": "Number",
+            "value": 1
+          }
+        },
+        {
+          "type": "Assignment",
+          "name": "Y",
+          "expression": {
+            "type": "BinaryOp",
+            "operator": "+",
+            "left": {
+              "type": "Variable",
+              "name": "X"
+            },
+            "right": {
+              "type": "Number",
+              "value": 4
+            }
+          }
+        }
+      ]
+    },
+    "final_state": {
+      "X": 1,
+      "Y": 5
+    }
+  }
+}

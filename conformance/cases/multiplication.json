@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "multiplication",
+  "source": "multiplication.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "Block",
+      "statements": [
+        {
+          "type": "Assignment",
+          "name": "X",
+          "expression": {
+            "type": "Number",
+            "value": 5
+          }
+        },
+        {
+          "type": "Assignment",
+          "name": "Y",
+          "expression": {
+            "type": "Number",
+            "value": 3
+          }
+        },
+        {
+          "type": "Assignment",
+          "name": "R",
+          "expression": {
+            "type": "Number",
+            "value": 0
+          }
+        },
+        {
+          "type": "While",
+          "condition": {
+            "type": "Comparison",
+            "left": {
+              "type": "Variable",
+              "name": "Y"
+            },
+            "operator": ">",
+            "right": {
+              "type": "Number",
+              "value": 0
+            }
+          },
+          "body": {
+            "type": "Block",
+            "statements": [
+              {
+                "type": "Assignment",
+                "name": "R",
+                "expression": {
+                  "type": "BinaryOp",
+                  "operator": "+",
+                  "left": {
+                    "type": "Variable",
+                    "name": "R"
+                  },
+                  "right": {
+                    "type": "Variable",
+                    "name": "X"
+                  }
+                }
+              },
+              {
+                "type": "Assignment",
+                "name": "Y",
+                "expression": {
+                  "type": "BinaryOp",
+                  "operator": "-",
+                  "left": {
+                    "type": "Variable",
+                    "name": "Y"
+                  },
+                  "right": {
+                    "type": "Number",
+                    "value": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "final_state": {
+      "X": 5,
+      "Y": 0,
+      "R": 15
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "assignment",
+  "source": "assignment.sipl",
+  "expect": {
+    "outcome": "success",
+    "ast": {
+      "type": "Assignment",
+      "name": "X",
+      "expression": {
+        "type": "Number",
+        "value": 7
+      }
+    },
+    "final_state": {
+      "X": 7
+    }
+  }
+}
